@@ -9,10 +9,10 @@ class Kana(SQLModel, table=True):
     kana: str = Field(nullable=False)
     romaji: str = Field(nullable=False)
     type: str = Field(nullable=False)
+    group: str = Field(nullable=False)
 
 engine = create_engine(DATABASE_URL, connect_args={"check_same_thread": False})
 
-# This is the function the error says is missing
 def get_session():
     with Session(engine) as session:
         yield session
